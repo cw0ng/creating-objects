@@ -3,7 +3,17 @@ import React from 'react';
 import styled from 'react-emotion';
 
 // Import Spectacle Core tags
-import { Deck, Heading, ListItem, List, Appear, Slide, Image } from 'spectacle';
+import {
+  Deck,
+  Heading,
+  ListItem,
+  Layout,
+  Fit,
+  List,
+  Appear,
+  Slide,
+  Image,
+} from 'spectacle';
 
 // Import theme
 import createTheme from 'spectacle/lib/themes/default';
@@ -27,13 +37,17 @@ const images = {
   titlecat: require('./images/titlecat.png'),
   cats: require('./images/giphy.webp'),
   objliteral: require('./images/objLiteral.png'),
+  factoryFunction1: require('./images/factory-function.png'),
+  factoryFunction2: require('./images/factory-function-clg1.png'),
+  factoryFunction3: require('./images/factory-function-clg2.png'),
+  factoryFunction4: require('./images/factory-function-clg3.png'),
 };
 
 const CustomListItem = styled(ListItem)`
   font-size: 0.75em;
-  margin: 1em;
+  margin: 2em;
   min-width: 16em;
-  line-height: 1.2;
+  line-height: 1.4;
 `;
 
 //////////////////////////////////////////
@@ -48,8 +62,9 @@ const TitleGif = styled(Image)`
 `;
 
 const SlideTitle = styled(Heading)`
-  text-align: center;
-  font-size: 30px;
+  margin-left: 1em;
+  text-align: left;
+  font-size: 22px;
   font-weight: normal;
   font-style: italic;
 `;
@@ -78,7 +93,7 @@ export default class Presentation extends React.Component {
         </Slide>
         <CustomSlide>
           <SlideTitle textColor='secondary'>Object Literals</SlideTitle>
-          <div style={{ display: 'flex' }}>
+          <Layout>
             <Appear>
               <Image src={images.objliteral} />
             </Appear>
@@ -89,7 +104,7 @@ export default class Presentation extends React.Component {
                   <strong>
                     <em>Encapsulation</em>
                   </strong>{' '}
-                  - related data and functionality together
+                  — related data and functionality together
                 </CustomListItem>
               </Appear>
               <Appear>
@@ -119,11 +134,33 @@ export default class Presentation extends React.Component {
                 </CustomListItem>
               </Appear>
             </List>
-          </div>
+          </Layout>
         </CustomSlide>
         <CustomSlide>
           <SlideTitle textColor='secondary'>Factory Functions</SlideTitle>
-          {/* <div style={{ display: 'flex' }} /> */}
+          <Layout>
+            <Appear>
+              <Image src={images.factoryFunction1} />
+            </Appear>
+
+            <Appear>
+              <Image src={images.factoryFunction2} />
+            </Appear>
+          </Layout>
+        </CustomSlide>
+        <CustomSlide transition={['']} transitionDuration={0}>
+          <SlideTitle textColor='secondary'>Factory Functions</SlideTitle>
+          <Layout>
+            <Image src={images.factoryFunction1} />
+            <Image src={images.factoryFunction3} />
+          </Layout>
+        </CustomSlide>
+        <CustomSlide transition={['']} transitionDuration={0}>
+          <SlideTitle textColor='secondary'>Factory Functions</SlideTitle>
+          <Layout>
+            <Image src={images.factoryFunction1} />
+            <Image src={images.factoryFunction4} />
+          </Layout>
         </CustomSlide>
       </Deck>
     );
